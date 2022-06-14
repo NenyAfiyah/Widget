@@ -18,6 +18,11 @@ class MainActivity : AppCompatActivity() {
         //memanggil layout dengan menggunakan binding.root
         setContentView(binding.root)
 
+
+        val getData = intent.getParcelableExtra<modelLogin>("data")
+        binding.txtUsername.text = getData?.username.toString()
+        binding.txtPassword.text = getData?.password.toString()
+
         //Explicit intent
         binding.btnIntentWidget.setOnClickListener {
             val intent = Intent(this, Widget::class.java)
